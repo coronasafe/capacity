@@ -23,7 +23,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto px-2">
         <div className="mt-4 font-semibold text-5xl">Capacity Planner</div>
         <div className="max-w-sm mt-4">
           <div className=" mt-4">
