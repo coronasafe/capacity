@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 
 function App() {
-  const [length, setLength] = useState(0);
-  const [breadth, setBreadth] = useState(0);
+  const [length, setLength] = useState(8);
+  const [breadth, setBreadth] = useState(4);
+  const [unit, setUnit] = useState("ft");
+  const blength_ft = 8;
+  const bbreadth_ft = 4;
+  const blength_m = 3;
+  const bbreadth_m = 2
   return (
     <div className="App">
       <div class="bg-gray-200 border-b border-gray-300">
@@ -25,6 +30,13 @@ function App() {
       </div>
       <div className="max-w-5xl mx-auto px-2">
         <div className="mt-4 font-semibold text-5xl">Capacity Planner</div>
+		<label for="unit">Choose a unit : </label>
+		<select id="unit"
+				defaultValue={unit}
+				onChange={e => setUnit(e.target.value)}>
+		  <option value="ft">ft</option>
+		  <option value="m">m</option>
+		</select>
         <div className="max-w-sm mt-4">
           <div className=" mt-4">
             <label htmlFor="length" className="text-sm font-semibold">
@@ -51,6 +63,7 @@ function App() {
             />
           </div>
           <div className=" mt-4">Area: {length * breadth}</div>
+		  <div className=" mt-4">Capacity: {unit==="ft" ? ((length - (length % blength_ft))*(breadth - (breadth % bbreadth_ft))/(blength_ft*bbreadth_ft)) : ((length - (length % blength_m))*(breadth - (breadth % bbreadth_m)))/(blength_m*bbreadth_m)}</div>
         </div>
       </div>
     </div>
